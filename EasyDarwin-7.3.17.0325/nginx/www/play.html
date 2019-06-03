@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EasyDarwin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/adminlte-2.3.6/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/adminlte-2.3.6/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/adminlte-2.3.6/ionicons-2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/adminlte-2.3.6/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/adminlte-2.3.6/dist/css/skins/skin-green.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="adminlte-2.3.6/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="adminlte-2.3.6/bootstrap/js/bootstrap.min.js"></script>
+    <script src="adminlte-2.3.6/dist/js/app.js"></script>
+    <script src="adminlte-2.3.6/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <link rel="stylesheet" href="/adminlte-2.3.6/plugins/iCheck/all.css">
+    <script src="adminlte-2.3.6/plugins/iCheck/icheck.min.js"></script>
+    <script src="adminlte-2.3.6/plugins/md5/jquery.md5.js"></script>
+    <script src="adminlte-2.3.6/plugins/input-number/jquery.inputnumber.js"></script>
+    <script src="adminlte-2.3.6/plugins/ellipsis/jquery.ellipsis.js"></script>
+    <link rel="stylesheet" href="/adminlte-2.3.6/plugins/gritter/jquery.gritter.css">
+    <script src="adminlte-2.3.6/plugins/gritter/jquery.gritter.js"></script>
+    <link rel="stylesheet" href="/adminlte-2.3.6/plugins/loadmask/jquery.loadmask.css">
+    <script src="adminlte-2.3.6/plugins/loadmask/jquery.loadmask.min.js"></script>
+    <script src="adminlte-2.3.6/plugins/validator/validator.min.js"></script>
+    <script src="adminlte-2.3.6/plugins/bootbox/bootbox.min.js"></script>
+    <script src="adminlte-2.3.6/plugins/cookie/jquery.cookie.min.js"></script>
+    <script src="easyui-1.5.1/easyloader.js"></script>
+
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="js/common.js"></script>
+
+    <style>
+        .channel-title {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            color: #fff;
+            text-align: center;
+            padding: 0 15px;
+            font-size: 20px;
+            line-height: 50px;
+            font-weight: 700;
+        }
+        
+        #dvplay {
+            margin: 0 auto;
+            width: 80%;
+            height: auto;
+        }
+    </style>
+    <script src="js/cyberplayer.js"></script>
+</head>
+
+<body class="hold-transition skin-green sidebar-mini">
+    <script>
+        try {
+            $(document).on("click", ".main-header .sidebar-toggle", function() {
+                $(".content-wrapper").one("transitionend", function() {
+                    localStorage["sidebar-collapse"] = $("body").hasClass("sidebar-collapse") ? "sidebar-collapse" : "";
+                })
+            });
+            $("body").addClass(localStorage["sidebar-collapse"]);
+        } catch (e) {}
+    </script>
+    <div class="wrapper">
+
+        <header class="main-header">
+
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">ED</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">EasyDarwin</span>
+            </a>
+
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+            </nav>
+        </header>
+        <aside class="main-sidebar main-sidebar-gray">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="main.html">
+                            <i class="fa fa-video-camera"></i>
+                            <span>直播推流列表</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="config.html">
+                            <i class="fa fa-cogs"></i>
+                            <span>基本配置</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="about.html">
+                            <i class="fa fa-support"></i>
+                            <span>服务运行信息</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="easypusher.html">
+                            <i class="fa   fa-sign-in"></i>
+                            <span>EasyPusher</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="/easyplayer.html">
+                            <i class="fa  fa-toggle-right"></i>
+                            <span>EasyPlayer</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content">
+                <h4 class="text-center text-success video-title"></h4>
+                <div id="dvplay"></div>
+                <br>
+                <script>
+                    if (!$.cookie("videoUrl")) {
+                        top.location.href = "/";
+                    }
+                    var w = Math.floor($(".content-wrapper").width() * 0.75);
+                    var h = Math.floor(w * 3 / 5);
+                    var player = cyberplayer("dvplay").setup({
+                        flashplayer: "cyberplayer.flash.swf",
+                        stretching: "uniform",
+                        file: $.cookie("videoUrl") || "",
+                        image: $.cookie("snapUrl"),
+                        width: w,
+                        height: h,
+                        autostart: true,
+                        repeat: false,
+                        volume: 100,
+                        controls: true,
+                        controlbar: {
+                            barLogo: false
+                        },
+                        ak: '515d61b893134f40bd4297b75a03494b' // 公有云平台注册即可获得accessKey
+                    });
+
+
+                    function onWindowResize() {
+                        var w = Math.floor($(".content-wrapper").width() * 0.75);
+                        var h = Math.floor(w * 3 / 5);
+                        if (isPC()) {
+                            player.resize(w, h);
+                        }
+                    }
+
+                    $(function() {
+                        onWindowResize();
+                        var resizeEvt = "orientationchange" in window ? "orientationchange" : "resize";
+                        window.addEventListener(resizeEvt, onWindowResize, false);
+
+                        $(".content-wrapper").on("transitionend", function() {
+                            onWindowResize();
+                        })
+
+                        $(".video-title").text($.cookie("videoTitle"));
+                    });
+                </script>
+            </section>
+        </div>
+        <!-- content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs hide">
+                EasyDarwin
+            </div>
+            <strong>Copyright &copy; 2017 <a href="#">www.easydarwin.org</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- wrapper-->
+</body>
+
+</html>

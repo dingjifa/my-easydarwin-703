@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1" displayName="hiredis" projectFiles="true">
+      <itemPath>async.c</itemPath>
+      <itemPath>async.h</itemPath>
+      <itemPath>dict.c</itemPath>
+      <itemPath>dict.h</itemPath>
+      <itemPath>fmacros.h</itemPath>
+      <itemPath>hiredis.c</itemPath>
+      <itemPath>hiredis.h</itemPath>
+      <itemPath>net.c</itemPath>
+      <itemPath>net.h</itemPath>
+      <itemPath>read.c</itemPath>
+      <itemPath>read.h</itemPath>
+      <itemPath>sds.c</itemPath>
+      <itemPath>sds.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
+      <itemPath>EasyRedisClient.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles" displayName="源文件" projectFiles="true">
+      <itemPath>EasyRedisClient.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles" displayName="资源文件" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="测试文件"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="重要文件"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <commandLine>-std=c99</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../EasyProtocol/Include</pElem>
+          </incDir>
+          <commandLine>-std=c++0x</commandLine>
+        </ccTool>
+        <archiverTool>
+          <output>${CND_CONF}/libeasyredisclient.a</output>
+        </archiverTool>
+      </compileType>
+      <item path="EasyRedisClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EasyRedisClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="async.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="async.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dict.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dict.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hiredis.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="hiredis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="net.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="net.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="read.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="read.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sds.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="sds.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="i386" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <architecture>1</architecture>
+          <commandLine>-std=c99</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <architecture>1</architecture>
+          <standard>8</standard>
+          <incDir>
+            <pElem>../EasyProtocol/Include</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+          <output>${CND_CONF}/libeasyredisclient.a</output>
+        </archiverTool>
+      </compileType>
+      <item path="EasyRedisClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EasyRedisClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="async.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="async.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dict.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dict.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hiredis.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="hiredis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="net.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="net.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="read.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="read.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sds.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="sds.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="x64" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <architecture>2</architecture>
+          <commandLine>-std=c99</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <architecture>2</architecture>
+          <standard>8</standard>
+          <incDir>
+            <pElem>../EasyProtocol/Include</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+          <output>${CND_CONF}/libeasyredisclient.a</output>
+        </archiverTool>
+      </compileType>
+      <item path="EasyRedisClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EasyRedisClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="async.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="async.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dict.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="dict.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hiredis.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="hiredis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="net.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="net.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="read.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="read.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sds.c" ex="false" tool="0" flavor2="9">
+      </item>
+      <item path="sds.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

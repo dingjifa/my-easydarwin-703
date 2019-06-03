@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EasyDarwin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="./adminlte-2.3.6/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./adminlte-2.3.6/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./adminlte-2.3.6/ionicons-2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="./adminlte-2.3.6/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="./adminlte-2.3.6/dist/css/skins/skin-green.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="./adminlte-2.3.6/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="./adminlte-2.3.6/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./adminlte-2.3.6/dist/js/app.js"></script>
+    <script src="./adminlte-2.3.6/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <link rel="stylesheet" href="./adminlte-2.3.6/plugins/iCheck/all.css">
+    <script src="./adminlte-2.3.6/plugins/iCheck/icheck.min.js"></script>
+    <script src="./adminlte-2.3.6/plugins/md5/jquery.md5.js"></script>
+    <script src="./adminlte-2.3.6/plugins/input-number/jquery.inputnumber.js"></script>
+    <link rel="stylesheet" href="./adminlte-2.3.6/plugins/gritter/jquery.gritter.css">
+    <script src="./adminlte-2.3.6/plugins/gritter/jquery.gritter.js"></script>
+    <link rel="stylesheet" href="./adminlte-2.3.6/plugins/loadmask/jquery.loadmask.css">
+    <script src="./adminlte-2.3.6/plugins/loadmask/jquery.loadmask.min.js"></script>
+    <script src="./adminlte-2.3.6/plugins/validator/validator.min.js"></script>
+    <script src="./adminlte-2.3.6/plugins/bootbox/bootbox.min.js"></script>
+    <script src="./adminlte-2.3.6/plugins/cookie/jquery.cookie.min.js"></script>
+    <script src="./easyui/easyloader.js"></script>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/common.js"></script>
+</head>
+
+<body class="hold-transition skin-green sidebar-mini hide">
+    <script>
+        try {
+            $(document).on("transitionend", ".content-wrapper", function() {
+                localStorage["sidebar-collapse"] = $("body").hasClass("sidebar-collapse") ? "sidebar-collapse" : "";
+            });
+            $("body").addClass(localStorage["sidebar-collapse"]);
+        } catch (e) {}
+    </script>
+    <div class="wrapper">
+
+        <header class="main-header">
+
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">ED</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">EasyDarwin</span>
+            </a>
+
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a id="btn-modify-pwd" href="#" data-toggle="modal" data-target="#pwd-dlg"><i
+	                                class="fa fa-key"></i> 修改密码</a>
+                        </li>
+                        <li>
+                            <a id="btn-logout" href="javascript:void(0);"><i class="fa fa-power-off"></i> 注 销</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar main-sidebar-gray">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="main.html">
+                            <i class="fa fa-video-camera"></i>
+                            <span>直播推流列表</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="config.html">
+                            <i class="fa fa-cogs"></i>
+                            <span>基本配置</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="about.html">
+                            <i class="fa fa-support"></i>
+                            <span>服务运行信息</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="easypusher.html">
+                            <i class="fa   fa-sign-in"></i>
+                            <span>EasyPusher</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="easyplayer.html">
+                            <i class="fa  fa-toggle-right"></i>
+                            <span>EasyPlayer</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <div class="modal fade" id="pwd-dlg">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+                        <h4 class="modal-title">修改密码</h4>
+                    </div>
+                    <form id="pwd-form" class="form-horizontal" data-toggle="validator" data-disable="false">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="input-old-pwd" class="col-sm-3 control-label">
+	                                原密码
+	                                <span class="text-red">*</span>
+	                                :
+	                            </label>
+                                <div class="col-sm-8">
+                                    <input id="input-old-pwd" type="password" name="oldPwd" class="form-control" required>
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-new-pwd" class="col-sm-3 control-label">
+	                                新密码
+	                                <span class="text-red">*</span>
+	                                :
+	                            </label>
+                                <div class="col-sm-8">
+                                    <input id="input-new-pwd" type="password" name="newPwd" class="form-control" required>
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-new-pwd2" class="col-sm-3 control-label">
+	                                确认新密码
+	                                <span class="text-red">*</span>
+	                                :
+	                            </label>
+                                <div class="col-sm-8">
+                                    <input id="input-new-pwd2" type="password" name="newPwd2" class="form-control" data-match="#input-new-pwd" data-match-error="两次密码输入不一致" required>
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">确定</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <ol class="breadcrumb">
+                    <li><a href="main.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                </ol>
+            </section>
+            <section class="content">
+
+                <script>
+                    var openurls = [ "/easyplayer.html", "/easypusher.html"];
+                    var token = $.cookie("token") || "";
+                    if (!token && $.inArray(location.pathname, openurls) < 0) {
+                        top.location.href = "index.html";
+                    }
+                    // if (!token) {
+                    //     $(".treeview [href=/config.html]").closest(".treeview").hide();
+                    //     $(".treeview [href=/channel.html]").closest(".treeview").hide();
+                    // }
+                    $("#btn-logout").click(function() {
+                        $.get(_url + "/logout");
+                        $.cookie("token", "", {
+                            expires: -1
+                        });
+                        $.cookie("username", "", {
+                            expires: -1
+                        });
+                        top.location.href = "index.html";
+                    })
+                    $('#pwd-form').validator().on('submit', function(e) {
+                        if (!e.isDefaultPrevented()) {
+                            e.preventDefault();
+                            var _oldPwd = $("#pwd-form [name=oldPwd]").val();
+                            var _newPwd = $("#pwd-form [name=newPwd]").val();
+                            if (!/^[a-zA-Z0-9]+$/.test(_newPwd) || _newPwd.length > 16) {
+                                $.gritter.add("密码长度不超过16字符，为英文或数字!");
+                                return false;
+                            }
+                            $("#pwd-form [type=submit]").prop("disabled", true);
+                            $.ajax({
+                                type: "GET",
+                                url: _url + "/modifypassword",
+                                data: {
+                                    oldpassword: $.md5(_oldPwd),
+                                    newpassword: $.md5(_newPwd)
+                                },
+                                global: false,
+                                success: function(data) {
+                                    try {
+                                        console.log(data);
+                                        var ret = JSON.parse(data);
+                                        $.cookie("token", ret.EasyDarwin.Body.Token);
+                                        $.gritter.add({
+                                            text: "修改密码成功!",
+                                            class_name: "gritter-info"
+                                        });
+                                        $("#pwd-dlg").modal("hide");
+                                        return;
+                                    } catch (e) {}
+                                    $.gritter.add("修改密码不成功!");
+                                },
+                                error: function(xhr, ts, err) {
+                                    $.gritter.add("修改密码不成功!");
+                                },
+                                complete: function() {
+                                    $("#pwd-form [type=submit]").prop("disabled", false);
+                                }
+                            });
+                        }
+                    });
+                </script>
+                <script>
+                    $(".breadcrumb").append("<li class='active'><i class='fa fa-cogs'></i> 本地配置</li>");
+                </script>
+                <div class="container-fluid no-padding">
+                    <div class="nav-tabs-custom col-lg-offset-2 col-lg-8 no-padding">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#nvr-config" data-toggle="tab">EasyDarwin 基础配置</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="edw-config">
+                                <form role="form" class="form-horizontal" data-toggle="validator" data-disable="false">
+                                    <div class="form-group">
+                                        <label for="service-lan-port" class="col-sm-4 control-label">RTSP监听端口</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="RTSPLanPort" name="RTSPLanPort" pattern="^[0-9]+$" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service-lan-ip" class="col-sm-4 control-label">RTSP公网发布端口</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="RTSPWanPort" name="RTSPWanPort" pattern="^[0-9]+$" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service-wan-port" class="col-sm-4 control-label">服务器本机IP</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="ServiceLanIP" name="ServiceLanIP" readonly="readonly">
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service-wan-ip" class="col-sm-4 control-label">HTTP接口监听端口</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="ServiceLanPort" name="ServiceLanPort" pattern="^[0-9]+$" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channel-snap-interval" class="col-sm-4 control-label">服务器公网IP</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="ServiceWanIP" name="ServiceWanIP" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channel-snap-interval" class="col-sm-4 control-label">HTTP公网发布端口</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="ServiceWanPort" name="ServiceWanPort" pattern="^[0-9]+$" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channel-snap-interval" class="col-sm-4 control-label">配套的RTMP服务器</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="RTMPServer" name="RTMPServer" required>
+                                            <span class="help-block with-errors"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-4 col-sm-7">
+                                            <button type="submit" class="btn btn-primary">保存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                </div>
+                <script>
+                    function reload() {
+                        $.get(_url + "/getbaseconfig", function(data) {
+                            try {
+                                var ret = JSON.parse(data);
+                                $("#edw-config form").form("load", ret.EasyDarwin.Body);
+                            } catch (e) {}
+                        });
+                        $.get(_url + "/getthirdplatformconfig", function(data) {
+                            try {
+                                var ret = JSON.parse(data);
+                                $("#platform-config form").form("load", ret.EasyDarwin.Body);
+                                $("[name=ThridPlatform]").trigger("change");
+                            } catch (e) {}
+                        });
+                    }
+                    $(function() {
+                        easyloader.load(['form'], function() {
+                            reload();
+                        });
+                        $('#edw-config form').validator().on('submit', function(e) {
+                            if (!e.isDefaultPrevented()) {
+                                e.preventDefault();
+                                var $this = $(this);
+                                $this.find("button[type=submit]").prop("disabled", true);
+                                $.ajax({
+                                    type: "GET",
+                                    url: _url + "/setbaseconfig",
+                                    data: $this.serialize(),
+                                    success: function(data) {
+                                        reload();
+                                        $.gritter.add({
+                                            text: '配置成功,重启后生效!',
+                                            class_name: 'gritter-info'
+                                        });
+                                    },
+                                    complete: function(xhr, ts) {
+                                        $this.find("button[type=submit]").prop("disabled", false);
+                                    }
+                                })
+                            }
+                        });
+                    })
+                </script>
+            </section>
+        </div>
+        <!-- content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                EasyDarwin
+            </div>
+            <strong>Copyright &copy; 2017 <a href="#">www.easydarwin.org</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- wrapper-->
+</body>
+
+</html>
