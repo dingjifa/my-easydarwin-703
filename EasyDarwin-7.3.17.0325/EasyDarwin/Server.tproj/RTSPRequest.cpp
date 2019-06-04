@@ -461,7 +461,13 @@ void RTSPRequest::ParseTransportHeader()
 			case 'R':   // RTP/AVP/??? Is this TCP or UDP?
 				{
 					if (theTransportSubHeader.EqualIgnoreCase("RTP/AVP/TCP"))
+					{
 						fTransportType = qtssRTPTransportTypeTCP;
+					}
+					else if(theTransportSubHeader.EqualIgnoreCase("RTP/AVP/UDP"))
+					{
+						fTransportType = qtssRTPTransportTypeUDP;
+					}
 					break;
 				}
 			case 'c':   //client_port sub-header

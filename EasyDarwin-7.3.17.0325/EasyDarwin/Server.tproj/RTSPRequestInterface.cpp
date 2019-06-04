@@ -167,7 +167,9 @@ RTSPRequestInterface::RTSPRequestInterface(RTSPSessionInterface *session)
 	fTtl(0),
 	fDestinationAddr(0),
 	fSourceAddr(0),
-	fTransportType(qtssRTPTransportTypeTCP),
+	//默认为udp，如果改为qtssRTPTransportTypeTCP,需要在RTSPRequest::ParseTransportHeader中
+	//添加theTransportSubHeader.EqualIgnoreCase("RTP/AVP/UDP")
+	fTransportType(qtssRTPTransportTypeUDP),
 	fNetworkMode(qtssRTPNetworkModeDefault),
 	fContentLength(0),
 	fIfModSinceDate(0),

@@ -233,6 +233,19 @@ void EventContext::RequestEvent(int theMask)
 				fUniqueID = ++sUniqueID;         // level are ignored, so wrap at 8192
 			else
 				fUniqueID = 1;
+			#if 0 //上面的操作基本等同于下面的操作，但是上面的是原子操作
+			if ( sUniqueID == topVal){
+				 sUniqueID = 1;
+
+				 fUniqueID = 1;
+				 //return true;
+			}
+			else{
+				topVal = sUniqueID;
+				fUniqueID = ++sUniqueID;
+				//return false;
+			}
+			#endif
 
 			//If the fUniqueID is used, find a new one until it's free
 			OSRef * ref = fEventThread->fRefTable.Resolve(&fUniqueIDStr);
